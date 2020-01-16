@@ -16,4 +16,4 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Route::resource('seos', 'SEOController');// Route::resource('chimebanks', 'ChimeBankController');
+// Route::resource('seos', 'SEOController');// Route::resource('chimebanks', 'ChimeBankController');// Route::resource('predictions', 'PredictionController');// Route::resource('subscriptions', 'SubscriptionController');

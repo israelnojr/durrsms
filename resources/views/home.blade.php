@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <a href="#" class="btn btn-success">Create Service</a>
+                    <a href="{{ route('admin.predictions.index')}}" class="btn btn-success">Predictions</a>
                     <a href="#" class="btn btn-success float-right">View Orders</a>
                    @can('edit-user')
                     <a href="{{route('admin.users.index')}}" class="btn btn-primary"style="margin-left:5px">Manage Users</a>
