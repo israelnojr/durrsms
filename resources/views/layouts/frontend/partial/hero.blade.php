@@ -5,7 +5,7 @@
   <p>Sure Soccer Predictions daily !!!</p>
     <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Free Games</a>
-        <a href="#about" class="btn-get-started scrollto">Join VIP</a>
+        <a href="{{ route('admin.subscriptions.create')}}" class="btn-get-started scrollto">Join VIP</a>
         <a href="#contact" class="btn-get-started scrollto">Call Admin</a>
     </div>
 </div>

@@ -16,6 +16,7 @@ class CreateSubscriptionsTable extends Migration
             $table->float('amount');
             $table->string('payment_type');
             $table->boolean('status')->default(false);
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

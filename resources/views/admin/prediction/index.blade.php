@@ -13,11 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @include('layouts.frontend.partial.message')
                     <a href="{{ route('admin.predictions.create')}}" class="btn btn-success">Create</a>
-                    <a href="{{ route('home')}}" class="btn btn-primary float-right">View Orders</a>
+                    <a href="{{ route('home')}}" class="btn btn-primary float-right">{{ __('Dashboard')}}</a>
                 </div>
-                @include('layouts.frontend.partial.message')
                 <br><br>
             </div>
         </div>

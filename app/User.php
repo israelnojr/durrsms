@@ -3,10 +3,11 @@
 namespace App;
 
 use auth;
+use Subscription;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements CanResetPassword
 {
@@ -42,6 +43,11 @@ class User extends Authenticatable implements CanResetPassword
     public function roles()
     {
         return $this->belongsToMany('App\Role');
+    }
+
+    public function subscription()
+    {
+        return $this->hasOne(Subscription::class);
     }
 
     public function orders()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -18,7 +19,7 @@ class LoginController extends Controller
            return $this->redirectTo;
         }
         elseif(\Auth::user()->hasRole('customer')){
-            $this->redirectTo = '/chimebanks';
+            $this->redirectTo = '/admin/profile/'. Auth::user()->id;
             return $this->redirectTo;
         }
         else{

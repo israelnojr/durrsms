@@ -10,7 +10,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="#about">{{ __('FreeGames')}}</a></li>
-          <li><a href="#features">{{ __('FreeGames')}}</a></li>
+          <li><a href="{{ route('admin.subscriptions.create')}}">{{ __('Join VIP')}}</a></li>
           @guest
           <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -23,7 +23,10 @@
           @else
           <li class="menu-has-children"><a href="">{{ Auth::user()->name }}</a>
             <ul>
-              <li><a href="{{route('home')}}">{{ __('Dashboard')}}</a></li>
+             @can('edit-user')
+             <li><a href="{{route('home')}}">{{ __('Dashboard')}}</a></li>
+             @endcan
+              <li><a href="{{route('admin.profile', Auth::user()->id)}}">{{ __('Profile')}}</a></li>
               <li class="menu-has-children">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

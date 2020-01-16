@@ -145,10 +145,10 @@
         <p class="cta-text"> We Provide sure 5 odds daily for our Basic members, and sure 5 & 10 odds daily for our Advanced members with guaranteed 5 wins per week.</p>
       </div>
       <div class="col-lg-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle" href="#">become a VIP</a>
+        <a href="{{ route('admin.subscriptions.create')}}" class="cta-btn align-middle">become a VIP</a>
       </div>
     </div>
-
+   
   </div>
 </section><!-- #call-to-action -->
 
@@ -218,7 +218,7 @@
                     <span class="badge badge-danger">#15,000</span>
             </li>
           </ul>
-          <a href="#" class="get-started-btn">Get Started</a>
+          <a href="{{ route('admin.subscriptions.create')}}" class="get-started-btn">Get Started</a>
         </div>
       </div>
 

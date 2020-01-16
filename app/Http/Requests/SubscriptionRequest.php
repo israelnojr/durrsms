@@ -11,6 +11,9 @@
         }
         public function rules()
         {
-            return [];
+            return [
+                'type' => 'required',
+                'payment_type' => 'required',
+            ];
         }
     }

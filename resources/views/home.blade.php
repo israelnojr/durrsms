@@ -19,7 +19,7 @@
                    @can('edit-user')
                     <a href="{{route('admin.users.index')}}" class="btn btn-primary"style="margin-left:5px">Manage Users</a>
                    @endcan
-                    <a href="{{ route('chimebanks.index')}}" class="btn btn-warning"style="margin-left:5px">Account Info</a>
+                    <a href="{{ route('admin.subscriptions.store')}}" class="btn btn-warning"style="margin-left:5px">Subscriptions</a>
                 </div>
                 @include('layouts.frontend.partial.message')
             </div>
