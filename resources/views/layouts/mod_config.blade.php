@@ -18,8 +18,10 @@
   <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 
    <!-- DataTables CSS -->
+
    <link href="{{ asset('css/addons/datatables.min.css')}}" rel="stylesheet">
    <link href="{{ asset('css/addons/datatables-select.min.css')}}" rel="stylesheet">
+   <script src="{{ asset('js/app.js')}}"></script>
 </head>
 <body>
 <div id="app">
@@ -93,7 +95,7 @@
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="{{ asset('js/popper.min.js')}}"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
+  <!-- <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script> -->
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
   <!-- Your custom scripts (optional) -->

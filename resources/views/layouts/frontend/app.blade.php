@@ -26,10 +26,11 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('frontend/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('frontend/css/message.css')}}" rel="stylesheet">
-  
+  <script src="{{ asset('js/app.js')}}"></script>
 </head>
 
 <body>
+  @include('layouts.frontend.partial.message')
   @include('layouts.frontend.partial.header')
   @include('layouts.frontend.partial.hero')
   <main>
@@ -54,7 +55,6 @@
   <script src="contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="{{ asset('frontend/js/main.js')}}"></script>
-  <script src="{{asset('/js/message.js')}}"></script>
+  <script src="{{ asset('frontend/js/main.js')}}"></script> 
 </body>
 </html>
