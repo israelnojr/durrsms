@@ -36,10 +36,12 @@
           <th class="th-sm">Away Team
           </th>
           <th class="th-sm">Tip
-          <th class="th-sm">Premium Game
-          <th class="th-sm">Status
-          <th class="th-sm">Edit
+          <th class="th-sm">Premium Game </th>
+          <th class="th-sm">Plan</th>
+          <th class="th-sm">Status </th>
+          <th class="th-sm">Edit </th>
           <th class="th-sm">Delete
+          </th>
           <th class="th-sm">DateTime
           </th>
         </tr>
@@ -60,7 +62,7 @@
                     </button>
                 </form> 
             </td>
-           
+            <td>{{$game->plan == 'first_class_plan' ? 'Frist Class' : 'Economic'}}</td>
             @if($game->isEndded == true)
             <td class=""> 
                 <a href="#"  class="btn btn-md {{ $game->result == 'won' ? 'btn-success' : 'btn-danger'}}">

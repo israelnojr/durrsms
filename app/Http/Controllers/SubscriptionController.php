@@ -4,13 +4,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-
 use App\Prediction;
 use App\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\SubscriptionRequest;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class SubscriptionController extends Controller
 {
@@ -31,13 +31,22 @@ class SubscriptionController extends Controller
         return view('admin.subscription.create', compact('id'));
         // return response()->json($subscriptions);
     }
+
+    public function edit(Subscription $subscription)
+    {
+        $id = Auth::user()->id;
+        return view('admin.subscription.edit', compact('subscription'));
+    }
+
     public function store(SubscriptionRequest $request)
-    {   $sub  = new Subscription();
-        if($request->type == "weekly 5 odds"){
+    {   
+        $sub  = new Subscription();
+        if($request->type == "economin_plan"){
             $sub->user_id = $request->user_id;
             $sub->type = $request->type;
             $sub->payment_type = $request->payment_type;
-            $sub->amount = '5000';
+            $sub->amount = '50';
+            $sub->started_at = Carbon::now()->addDays(7);
             $sub->save();
 
             if($request->payment_type == 'btc'){
@@ -49,22 +58,13 @@ class SubscriptionController extends Controller
                 return view('admin.subscription.payment', compact('sub', 'id'));
             }
         }
-        elseif($request->type == "weekly 3 odds"){
-            $sub->user_id = $request->user_id;
-            $sub->type = $request->type;
-            $sub->payment_type = $request->payment_type;
-            $sub->amount = '3000';
-            $sub->save();
-
-            $id = Auth::user()->id;
-            return view('admin.subscription.payment', compact('sub', 'id'));
-        }
         else{
-            $request->type == "weekly 10 odds";
+            $request->type == "first_class_plan";
             $sub->user_id = $request->user_id;
             $sub->type = $request->type;
             $sub->payment_type = $request->payment_type;
-            $sub->amount = '10000';
+            $sub->amount = '100';
+            $sub->started_at = Carbon::now()->addDays(7);
             $sub->save();
 
             $id = Auth::user()->id;
@@ -124,32 +124,82 @@ class SubscriptionController extends Controller
     {
         $subscription = Subscription::findOrFail($id);
         return view('subscription.show', compact('subscription'));
-        // return response()->json($subscription);
     }
     public function update(SubscriptionRequest $request, $id)
     {
-        $subscription = Subscription::findOrFail($id);
-        $subscription->update($request->all());
+        $sub = Subscription::findOrFail($id);
+        if($request->type == "weekly 5 odds"){
+            $sub->type = $request->type;
+            $sub->payment_type = $request->payment_type;
+            $sub->amount = '5000';
+            $sub->started_at = Carbon::now()->addDays(7);
+            $sub->update();
+
+            if($request->payment_type == 'btc'){
+                $id = Auth::user()->id;
+                return view('admin.subscription.payment', compact('sub', 'id'));
+            }
+            else{
+                $id = Auth::user()->id;
+                return view('admin.subscription.payment', compact('sub', 'id'));
+            }
+        }
+        elseif($request->type == "weekly 3 odds"){
+            $sub->type = $request->type;
+            $sub->payment_type = $request->payment_type;
+            $sub->amount = '3000';
+            $sub->started_at = Carbon::now()->addDays(7);
+            $sub->update();
+
+            $id = Auth::user()->id;
+            return view('admin.subscription.payment', compact('sub', 'id'));
+        }
+        else{
+            $request->type == "weekly 10 odds";
+            $sub->type = $request->type;
+            $sub->payment_type = $request->payment_type;
+            $sub->amount = '10000';
+            $sub->started_at = Carbon::now()->addDays(7);
+            $sub->update();
+
+            $id = Auth::user()->id;
+            return view('admin.subscription.payment', compact('sub', 'id'));
+        }
+        // $subscription->update($request->all());
         return redirect()->back()->with('success', 'Subscription updated successfully!');
-        // return response()->json($subscription, 200);
     }
+
     public function destroy($id)
     {
         Subscription::destroy($id);
         return redirect()->back()->with('success', 'Subscription deleted successfully!');
-        // return response()->json(null, 204);
     }
 
     public function profile()
     {
         $id = Auth::user()->id;
-        $subscriptions = Subscription::latest()->where('user_id', $id)->get();
-        $predictions = Prediction::latest()->where([
-            ['isPremium', true], ['isEndded', false]
-        ])->get()->take(5);
-        $PastPrediction = Prediction::latest()->where([
-            ['isPremium', true], ['isEndded', true]
-        ])->get()->take(5);
-        return view('admin.subscription.profile', compact('subscriptions','predictions','PastPrediction'));
+        $user = Auth::user();
+        $subscription = Subscription::latest()->where('user_id', $id)->first();
+
+        if($user->subscription){
+            if($user->subscription->type == 'first_class_plan'){
+                $predictions = Prediction::latest()->where([
+                    ['isPremium', true], ['isEndded', false], ['plan', 'first_class_plan']
+                ])->get()->take(5);
+            }
+            else
+                {
+                $predictions = Prediction::latest()->where([
+                    ['isPremium', true], ['isEndded', false], ['plan', 'economin_plan']
+                ])->get()->take(5);
+            }
+            $PastPrediction = Prediction::latest()->where([
+                ['isPremium', true], ['isEndded', true]
+            ])->get()->take(5);
+
+            return view('admin.subscription.profile', compact('subscription','predictions','PastPrediction','user'));
+        }
+
+        return redirect()->back()->with('warning', 'You Do\'nt have acess, Subscribe to Gain Access');
     }
 }

@@ -9,11 +9,22 @@
         {
             return true;
         }
+
         public function rules()
-        {
-            return [
-                'type' => 'required',
-                'payment_type' => 'required',
+        { 
+            $rules = [
+                    'user_id' => 'unique:subscriptions',
+                    'type' => 'required',
+                    'payment_type' => 'required',
             ];
+            return $rules; 
         }
+
+        public function messages()
+        { 
+            return [
+                    'user_id.unique' => 'You have aready subsbscribed, consider renewing if subscription is expired'
+                ];
+        }
+        
     }

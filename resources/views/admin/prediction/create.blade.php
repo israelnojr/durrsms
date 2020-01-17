@@ -79,6 +79,16 @@
                             <label class="form-check-label" for="roles">Premium</label>
                         </div>
                     </div>
+                    <div class=" form-group ">
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="materialInline1"
+                                name="plan" value="economin_plan">
+                            <label class="form-check-label mr-2" for="roles">Economic Plan</label>
+                            <input type="checkbox" class="form-check-input" id="materialInline1"
+                                name="plan" value="first_class_plan">
+                            <label class="form-check-label" for="roles">First Class Plan</label>
+                        </div>
+                    </div>
 
                     <div class="text-center py-4 mt-3">
                         <button class="btn btn-cyan" type="submit">{{ __('Save')}}</button>

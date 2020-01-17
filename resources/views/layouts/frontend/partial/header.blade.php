@@ -26,7 +26,7 @@
              @can('edit-user')
              <li><a href="{{route('home')}}">{{ __('Dashboard')}}</a></li>
              @endcan
-              <li><a href="{{route('admin.profile', Auth::user()->id)}}">{{ __('Profile')}}</a></li>
+              <li><a href="{{route('admin.profile', Auth::user()->id)}}">{{ __('Premium Predictions')}}</a></li>
               <li class="menu-has-children">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

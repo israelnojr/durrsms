@@ -15,10 +15,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group( function(){
 Route::prefix('admin')->name('admin.')->group( function(){
     Route::resource('predictions', 'PredictionController');
     Route::put('prediction/{prediction}', 'PredictionController@premium')->name('predictions.premium');
+    
     Route::resource('subscriptions', 'SubscriptionController');
-    Route::put('subscriptions/{subscription}', 'SubscriptionController@status')->name('subscription.status');
+    Route::put('subscriptions/{subscription}/status', 'SubscriptionController@status')->name('subscription.status');
     Route::get('profile/{user}', 'SubscriptionController@profile')->name('profile');
     Route::put('subscriptions/{subscription}/payment', 'SubscriptionController@updateImage')->name('subscription.payment');
+    Route::get('plan/{subscription}/renew', 'SubscriptionController@edit')->name('subscriptions.renew');
 });
+
 Route::resource('seos', 'SEOController');
 Route::resource('chimebanks', 'ChimeBankController');

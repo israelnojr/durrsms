@@ -20,19 +20,25 @@
                     <th scope="col">League</th>
                     <th scope="col">Home vs Away</th>
                     <th scope="col">Tip</th>
+                    <th scope="col">Start Time</th>
                     </tr>
                 </thead>
-                <tbody>
-                @foreach($prediction as $game)
-                    <tr class="bg-info">
-                        <th scope="row">{{$game->league}}</th>
-                        <td>
-                        {{$game->home_team}} vs {{$game->away_team}}
-                        </td>
-                        <td>{{$game->tip}}</td>
-                    </tr>
-                @endforeach
-                </tbody>
+                @if($prediction)
+                  <tbody>
+                  @foreach($prediction as $game)
+                      <tr class="bg-info">
+                          <th scope="row">{{$game->league}}</th>
+                          <td>
+                          {{$game->home_team}} vs {{$game->away_team}}
+                          </td>
+                          <td>{{$game->tip}}</td>
+                          <td>{{$game->started_at}}</td>
+                      </tr>
+                  @endforeach
+                  </tbody>
+                  @else
+                  <p class="text-danger" style="text-align: center">No Freebies today</p>
+                @endif
             </table>
         </div>
     </div>
@@ -113,6 +119,7 @@
                     <th scope="col">Home vs Away</th>
                     <th scope="col">Tip</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Date Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -127,6 +134,7 @@
                         @if($game->isEndded == true) <td>{{$game->result == 'won' ? 'WON' : 'LOST'}}</td>
                         @else <td>{{ __('Ongoing')}}</td>
                         @endif
+                        <td>{{$game->started_at}}</td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -197,32 +205,36 @@
       <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
     </div>
 
-    <div class="row">
-
-      <div class="col-lg-4 col-md-8 off-set" style="position: relative;left: 368px;">
-        <div class="box wow featured fadeInUp" style="width: 116%;">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="box featured wow fadeInRight">
+          <h3>First Class</h3>
+          <h4><sup>$</sup>100<span> month</span></h4>
           <ul>
-            <li>
-                <i class="ion-android-checkmark-circle">
-                </i><span class="badge badge-danger">Sunday - saturday</span> Sure 3 odds 
-                    <span class="badge badge-danger">#6,000</span>
-            </li>
-            <li>
-                <i class="ion-android-checkmark-circle">
-                </i><span class="badge badge-danger">Sunday - saturday</span> Sure 5 odds 
-                    <span class="badge badge-danger">#10,000</span>
-            </li>
-            <li>
-                <i class="ion-android-checkmark-circle">
-                </i><span class="badge badge-danger">Sunday - saturday</span> Sure 10 odds 
-                    <span class="badge badge-danger">#15,000</span>
-            </li>
+            <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+            <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+            <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+            <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+            <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
           </ul>
           <a href="{{ route('admin.subscriptions.create')}}" class="get-started-btn">Get Started</a>
         </div>
       </div>
 
-    </div>
+      <div class="col-lg-4 col-md-6">
+          <div class="box  wow fadeInLeft">
+            <h3>Economic Class</h3>
+            <h4><sup>$</sup>50<span> month</span></h4>
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
+              <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+              <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
+              <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
+              <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+            </ul>
+            <a href="{{ route('admin.subscriptions.create')}}" class="get-started-btn">Get Started</a>
+          </div>
+      </div>
   </div>
 </section><!-- #pricing -->
 

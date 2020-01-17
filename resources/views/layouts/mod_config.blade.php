@@ -63,7 +63,7 @@
                                         </a>
                                     @endcan
                                     <a class="dropdown-item" href="{{route('admin.profile', Auth::user()->id)}}">
-                                        {{ __('Profile') }}
+                                        {{ __('Premium Predictions') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

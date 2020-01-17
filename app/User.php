@@ -47,7 +47,7 @@ class User extends Authenticatable implements CanResetPassword
 
     public function subscription()
     {
-        return $this->hasOne(Subscription::class);
+        return $this->hasOne('App\Subscription', 'user_id');
     }
 
     public function orders()

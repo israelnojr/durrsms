@@ -6,10 +6,9 @@
     <div class="col-md-6">
     @include('layouts.frontend.partial.message')
         <div class="card">
-            <div class="card-header">User Subscription</div>
+            <div class="card-header">User Renew Subscription</div>
             <div class="card-body">
-                <form action="{{ route('admin.subscriptions.store')}}" method="post"> @csrf 
-                    <input id="user_id" type="hidden" name="user_id" value="{{$id}}">
+                <form action="{{ route('admin.subscriptions.update', $subscription->id)}}" method="post"> @csrf @method("put")
                     <div class="md-form">
                         <select name="type" id="type" class="form-control @error('type') is-invalid @enderror">
                             <option value="">Choose Package</option>

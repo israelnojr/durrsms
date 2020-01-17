@@ -23,6 +23,7 @@ class CreatePredictionsTable extends Migration
             $table->boolean('isEndded')->default(false);
             $table->string('result')->nullable();
             $table->boolean('isPremium')->default(false);
+            $table->string('plan')->nullable();
             $table->timestamps();
 
             $table->index('user_id');
