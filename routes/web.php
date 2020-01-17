@@ -22,6 +22,3 @@ Route::prefix('admin')->name('admin.')->group( function(){
     Route::put('subscriptions/{subscription}/payment', 'SubscriptionController@updateImage')->name('subscription.payment');
     Route::get('plan/{subscription}/renew', 'SubscriptionController@edit')->name('subscriptions.renew');
 });
-
-Route::resource('seos', 'SEOController');
-Route::resource('chimebanks', 'ChimeBankController');
