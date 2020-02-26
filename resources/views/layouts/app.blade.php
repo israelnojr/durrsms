@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ReviewServiceClub') }}</title>
+    <title>{{ config('app.name', 'BetPredict') }} | Sure Soccer Predictions daily</title>
 
         <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">

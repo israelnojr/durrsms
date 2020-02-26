@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
+  <title>Sure Soccer Predictions daily</title>
   <!-- MDB icon -->
   <link rel="icon" href="{{ asset('img/mdb-favicon.ico')}}" type="image/x-icon">
   
@@ -66,6 +66,9 @@
                                     @endcan
                                     <a class="dropdown-item" href="{{route('admin.profile', Auth::user()->id)}}">
                                         {{ __('Premium Predictions') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('strategy')}}">
+                                        {{ __('Strategy') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

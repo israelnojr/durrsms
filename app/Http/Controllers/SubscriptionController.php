@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
@@ -200,6 +199,6 @@ class SubscriptionController extends Controller
             return view('admin.subscription.profile', compact('subscription','predictions','PastPrediction','user'));
         }
 
-        return redirect()->back()->with('warning', 'You Do\'nt have acess, Subscribe to Gain Access');
+        return redirect()->back()->with('warning', 'You Do\'nt have acess, Subscribe to Gain Access - Subscribe to VIP');
     }
 }

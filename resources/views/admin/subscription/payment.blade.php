@@ -9,7 +9,7 @@
             <div class="card-header">{{ __('User Subscription Payment')}}</div>
             <div class="card-body">
                 @if($sub->payment_type == 'btc')
-                    <p>Send {{'$'.$sub->amount}} worth of BITCOIN to xxxxx</p>
+                    <p>Send {{'$'.$sub->amount}} worth of BITCOIN to 3EYnfrxXHjxoRcSNfnMqqoojQdaNH9iQfH</p>
                 @else
                 <p>Transfer {{'$'.$sub->amount}} to our Bank Account xxxxx</p>
                 @endif

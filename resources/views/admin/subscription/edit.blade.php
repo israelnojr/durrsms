@@ -25,7 +25,7 @@
                         <select name="payment_type" id="payment_type" class="form-control @error('payment_type') is-invalid @enderror">
                             <option value="">Payment Method</option>
                             <option value="btc">Bitcoin</option>
-                            <option value="bank">Bank Transfer</option>
+                            <!-- <option value="bank">Bank Transfer</option> -->
                             @error('payment_type')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -5,6 +5,7 @@ Auth::routes();
 
 Route::middleware('auth')->group( function(){
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/strategy', 'WelcomeController@strategy')->name('strategy');
 
 });
 

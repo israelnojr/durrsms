@@ -71,25 +71,26 @@
           <div class="col-lg-6 col-md-6 box wow fadeInRight">
             <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
             <h4 class="title"><a href="">Free Football Tips</a></h4>
-            <p class="description">Just like victor predict, soccervista, betensured and preditz, We offers sure wins
-             and sure predictions on daily basis , Our football predictions are sure win football prediction</p>
+            <p class="description">We are curious and adventurous bettors with analysis on various market trends to serve our clients better.   We provide free/premium betting tips on the most reliable betting sports across the globe (Tennis, Volleyball and Basketball).  </p>
           </div>
           <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.1s">
             <div class="icon"><i class="ion-ios-flask-outline"></i></div>
             <h4 class="title"><a href="">Premium Football Tips</a></h4>
-            <p class="description"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque quisquam explicabo voluptates quibusdam 
-            hic corrupti in. Nulla, voluptatibus. Harum, debitis. Voluptate enim temporibus voluptatum quis facilis rerum ut optio consequuntur!</p>
+            <p class="description">Our premiun VIP sections (not fixed) is for paid members on football and other sports. 
+Our average accuracy is highly desirable as we benchmark our VIP on 90% success rate, while our free tips speaks volumes.</p>
           </div>
           <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.2s">
             <div class="icon"><i class="ion-social-buffer-outline"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur teleca starter sinode park ledo.</p>
+            <h4 class="title"><a href="">We Value You</a></h4>
+            <p class="description">We use relevant statistics and trends to determine our predictions such as Analysis of Variance (ANOVA), 
+            Algorithm, Flowcharts, and Time Series Analysis. We are very finicky with our picks, 
+            and with the application of our risk management strategy, you are guaranteed more profits than losses.</p>
           </div>
           <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.3s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum dinoun trade capsule.</p>
+            <h4 class="title"><a href="">What we live for</a></h4>
+            <p class="description">Our goal is to predict, prescribe, understand and achieve result. Our emblem is “You bet, have fun and win”.  
+            We strongly advise that discipline is the watchword to achieving results. We love what we do and we do it better and improve ourselves every day!</p>
           </div>
         </div>
 
@@ -160,7 +161,7 @@
   </div>
 </section><!-- #call-to-action -->
 
-<section id="clients">
+<!-- <section id="clients">
   <div class="container">
 
     <div class="row wow fadeInUp">
@@ -191,7 +192,8 @@
 
     </div>
   </div>
-</section><!-- #more-features -->
+</section> -->
+<!-- #more-features -->
 
 <!--==========================
   Pricing Section
@@ -202,7 +204,7 @@
     <div class="section-header">
       <h3 class="section-title">Pricing</h3>
       <span class="section-divider"></span>
-      <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+      <p class="section-description">Select from our range of packages what best suite your budget</p>
     </div>
 
     <div class="row justify-content-center">
@@ -211,11 +213,11 @@
           <h3>First Class</h3>
           <h4><sup>$</sup>100<span> month</span></h4>
           <ul>
-            <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-            <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+            <li><i class="ion-android-checkmark-circle"></i>Daily 5 odds</li>
+            <!-- <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
             <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
             <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-            <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+            <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li> -->
           </ul>
           <a href="{{ route('admin.subscriptions.create')}}" class="get-started-btn">Get Started</a>
         </div>
@@ -226,11 +228,11 @@
             <h3>Economic Class</h3>
             <h4><sup>$</sup>50<span> month</span></h4>
             <ul>
-              <li><i class="ion-android-checkmark-circle"></i> Quam adipiscing vitae proin</li>
-              <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
+              <li><i class="ion-android-checkmark-circle"></i> Daily 2 odds</li>
+              <!-- <li><i class="ion-android-checkmark-circle"></i> Nec feugiat nisl pretium</li>
               <li><i class="ion-android-checkmark-circle"></i> Nulla at volutpat diam uteera</li>
               <li><i class="ion-android-checkmark-circle"></i> Pharetra massa massa ultricies</li>
-              <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li>
+              <li><i class="ion-android-checkmark-circle"></i> Massa ultricies mi quis hendrerit</li> -->
             </ul>
             <a href="{{ route('admin.subscriptions.create')}}" class="get-started-btn">Get Started</a>
           </div>
@@ -242,7 +244,7 @@
 <!--==========================
   Frequently Asked Questions Section
 ============================-->
-<section id="faq">
+<!-- <section id="faq">
   <div class="container">
 
     <div class="section-header">
@@ -309,7 +311,8 @@
     </ul>
 
   </div>
-</section><!-- #faq -->
+</section> -->
+<!-- #faq -->
 
 <!--==========================
   Contact Section
