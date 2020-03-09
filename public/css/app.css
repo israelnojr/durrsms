@@ -2514,6 +2514,7 @@ textarea.form-control {
 }
 
 .form-check-label {
+  margin-left: 17px;
   margin-bottom: 0;
 }
 

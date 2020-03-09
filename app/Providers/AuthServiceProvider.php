@@ -29,6 +29,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasAnyRoles(['superadmin', 'admin']);
         });
 
+        Gate::define('can-send-sms', function($user){
+            return $user->hasAnyRoles(['superadmin', 'admin', 'customer']);
+        });
+
         Gate::define('edit-user', function($user){
             return $user->hasRole('superadmin');
         });

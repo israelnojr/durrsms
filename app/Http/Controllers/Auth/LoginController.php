@@ -19,7 +19,7 @@ class LoginController extends Controller
            return $this->redirectTo;
         }
         elseif(\Auth::user()->hasRole('customer')){
-            $this->redirectTo = '/admin/profile/'. Auth::user()->id;
+            $this->redirectTo = '/';
             return $this->redirectTo;
         }
         else{

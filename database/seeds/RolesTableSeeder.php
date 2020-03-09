@@ -18,5 +18,8 @@ class RolesTableSeeder extends Seeder
         Role::create([
             'name' => 'customer'
         ]);
+        Role::create([
+            'name' => 'disabled'
+        ]);
     }
 }

@@ -1,14 +1,12 @@
-@extends('layouts.mod_config')
+@extends('layouts.front.app')
 
 @section('content')
-    <div class="container mt-5">
+<div id="content-wrapper">
+    <div class="container-fluid" style="height: 85vh">
         <div class="card-header mb-3 d-flex align-items-center"> 
             <span>List of Users</span>
-            <a href="{{route('home')}}" class="float-right btn btn-primary">
-                {{ __('Dashboard')}}
-            </a>
         </div>
-        @include('layouts.frontend.partial.message')
+      <!-- message will be here -->
         <table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -31,12 +29,12 @@
             <td>{{$user->email}}</td>
             <td>{{implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
             <td class=""> 
-                <a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-success">Edit</a>
+                <a href="{{route('admin.users.edit', $user->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
                 <form action="{{route('admin.users.destroy', $user)}}" method="post">
                     @csrf() @method('delete')
-                    <button type="submit" class="btn btn-danger ml-2">Delete</button>
+                    <button type="submit" class="btn btn-primary ml-2">Delete</button>
                 </form>
             </td>
             </tr>
@@ -44,4 +42,5 @@
         </tbody>
         </table>
     </div>
+</div>
 @endsection

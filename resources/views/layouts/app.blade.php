@@ -1,110 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('jboximage/favicon.ico')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('jboximage/favicon-32x32.png')}}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ asset('jboximage/favicon-16x16.png')}}" sizes="16x16" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'BetPredict') }} | Sure Soccer Predictions daily</title>
-
-        <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
-    <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    
+    <title>{{ config('app.name', 'JBOXCOIN') }}</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/message.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/application.css') }}" rel="stylesheet">
     
-    <!-- DataTables CSS -->
-    <link href="{{ asset('css/addons/datatables.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/addons/datatables-select.min.css')}}" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'ReviewServiceClub') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                                
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-                
-            </div>
-        </nav>
-
         <main class="py-4">
+        @if(Request::is('admin*'))
+            @include('layouts.inc.sidebar')
+            @include('layouts.inc.header')
+        @endif
             @yield('content')
+        @if(Request::is('admin*'))
+            @include('layouts.inc.footer')
+        @endif
         </main>
     </div>
-
-
-    <!-- jQuery -->
-  <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="{{ asset('js/popper.min.js')}}"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
-
-  <!-- Scripts -->
+    
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
-    <script src="{{ asset('js/message.js') }}" defer></script>
-      <!-- DataTables JS -->
-    <script src="{{ asset('js/addons/datatables.js')}}" ></script>
-    <script src="{{ asset('js/addons/datatables-select.js')}}" ></script>
+    <script src="{{ asset('lib/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{ asset('lib/jquery-pjax/jquery.pjax.js')}}"></script>
+    <script src="{{ asset('lib/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('lib/widgster/widgster.js')}}"></script>
+    <script src="{{ asset('lib/underscore/underscore.js')}}"></script>
+
+    <!-- common application js -->
+    <script src="{{ asset('js/application.js')}}"></script>
+    <script src="{{ asset('js/settings.js')}}"></script>
+
+    
+
+    <!-- page specific scripts -->
+    <!-- page libs -->
+    <script src="{{ asset('lib/slimScroll/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{ asset('lib/jquery.sparkline/index.js')}}"></script>
+
+    <script src="{{ asset('lib/backbone/backbone.js')}}"></script>
+    <script src="{{ asset('lib/backbone.localStorage/build/backbone.localStorage.min.js')}}"></script>
+
+    <script src="{{ asset('lib/d3/d3.min.js')}}"></script>
+    <script src="{{ asset('lib/nvd3/build/nv.d3.min.js')}}"></script>
+
+    <!-- page application js -->
+    <script src="{{ asset('js/index.js')}}"></script>
+    <script src="{{ asset('js/chat.js')}}"></script>
+
 </body>
 </html>

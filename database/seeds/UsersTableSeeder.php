@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
         $supserAdminRole = Role::where('name', 'superadmin')->first();
         $adminRole = Role::where('name', 'admin')->first();
         $customerRole = Role::where('name', 'customer')->first();
+        $disableRole = Role::where('name', 'disabled')->first();
 
         $supserAdmin = User::create([
             'name' => 'Super Admin',
@@ -39,9 +40,15 @@ class UsersTableSeeder extends Seeder
             'email' => 'customer@customer.com',
             'password' => Hash::make('password')
         ]);
+        $disabled = User::create([
+            'name' => 'Disabled User',
+            'email' => 'disable@customer.com',
+            'password' => Hash::make('password')
+        ]);
 
         $supserAdmin->roles()->attach($supserAdminRole);
         $admin->roles()->attach($adminRole);
         $customer->roles()->attach($customerRole);
+        $disabled->roles()->attach($disableRole);
     }
 }
