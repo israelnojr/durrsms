@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use Telnyx\Telnyx;
 use Illuminate\Http\Request;
-use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -31,7 +31,7 @@ class SmsController extends Controller
             'sendfrom' => 'required',
             'message' => 'required',
         ]);
-        DB::transaction(function ()   use ($request){
+        DB::transaction(function () use ($request){
             Message::create([
                 'user_id' => Auth::user()->id,
                 'shortcode' => $request->shortcode,
@@ -41,14 +41,14 @@ class SmsController extends Controller
                 'status' => true
             ]);
             
-            Nexmo::message()->send([
-                'to' => $request->shortcode . $request->mobile,
-                'from' => $request->sendfrom,
-                'text' => $request->message
+            $api_key = env('Telnyx_API_KEY');
+            \Telnyx\Telnyx::setApiKey($api_key); 
+            \Telnyx\Message::Create([
+                "from" => $request->sendfrom,
+                "to" => $request->shortcode . $request->mobile,
+                "text" => $request->message,
             ]);
-
         });
-
         Session::flash('success', 'Message sent');
         return back();
     }
