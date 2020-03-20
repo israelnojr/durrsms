@@ -21,9 +21,9 @@
                                 <label for="email">Mobile number</label>
                                 <select type="text" name="shortcode" class="form-control @error('shortcode') is-invalid @enderror" value="{{ old('shortcode') }}" id="mobile" placeholder="Mobile number">
                                     <option value="">Choose Short Code</option>
-                                    <option value="234">NIG</option>
-                                    <option value="971">UAE</option>
-                                    <option value="1">US & CA</option>
+                                    <option value="+234">NIG</option>
+                                    <option value="+971">UAE</option>
+                                    <option value="+1">US & CA</option>
                                 </select>
                                 @error('shortcode')
                                     <span class="invalid-feedback" role="alert">

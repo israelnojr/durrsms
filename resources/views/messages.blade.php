@@ -25,7 +25,7 @@
         <tbody>
             @forelse($messages as $message)
             <tr>
-                <td>{{'+'.$message->shortcode.$message->mobile}}</td>
+                <td>{{$message->shortcode.$message->mobile}}</td>
                 <td>{{$message->sendfrom}}</td>
                 <td>{{$message->message}}</td>
                 <td>{{$message->status == true ? 'Delivered' : 'Failed'}}</td>

@@ -42,11 +42,13 @@ class SmsController extends Controller
             ]);
             
             $api_key = env('Telnyx_API_KEY');
+            $profile_id = env('messaging_profile_id');
             \Telnyx\Telnyx::setApiKey($api_key); 
             \Telnyx\Message::Create([
                 "from" => $request->sendfrom,
                 "to" => $request->shortcode . $request->mobile,
                 "text" => $request->message,
+                'messaging_profile_id' => $profile_id
             ]);
         });
         Session::flash('success', 'Message sent');
