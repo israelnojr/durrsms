@@ -27,7 +27,6 @@ class SmsController extends Controller
         if(Gate::denies('can-send-sms')){
             return back()->with('warning', 'You not allowed to perform this action');
         }
-        dd($request->all());
         $request->validate([
             'shortcode' => 'required | numeric',
             'mobile' => 'required | numeric',
