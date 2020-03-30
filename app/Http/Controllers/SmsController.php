@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Telnyx\Telnyx;
+use App\CountryCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -18,13 +19,15 @@ class SmsController extends Controller
         if(Gate::denies('can-send-sms')){
             return redirect()->back()->with('warning', 'You not allowed to perform this action');
         }
-        return view('sms');
+        $codes = CountryCode::all();
+        return view('sms', compact('codes'));
     }
     public function sendSms(Request $request)
     {
         if(Gate::denies('can-send-sms')){
             return back()->with('warning', 'You not allowed to perform this action');
         }
+        dd($request->all());
         $request->validate([
             'shortcode' => 'required | numeric',
             'mobile' => 'required | numeric',

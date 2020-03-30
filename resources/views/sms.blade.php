@@ -21,9 +21,9 @@
                                 <label for="email">Mobile number</label>
                                 <select type="text" name="shortcode" class="form-control @error('shortcode') is-invalid @enderror" value="{{ old('shortcode') }}" id="mobile" placeholder="Mobile number">
                                     <option value="">Choose Short Code</option>
-                                    <option value="+234">NIG</option>
-                                    <option value="+971">UAE</option>
-                                    <option value="+1">US & CA</option>
+                                    @foreach($codes as $code)
+                                    <option value="+{{$code->phonecode}}">{{$code->name}}</option>
+                                    @endforeach
                                 </select>
                                 @error('shortcode')
                                     <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="mobile">Mobile number</label>
                                 <input type="text" name="mobile" class="form-control @error('mobile') is-invalid @enderror" value="{{ old('mobile') }}" id="mobile" placeholder="Mobile number">
-                                @error('sendfrom')
+                                @error('mobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
