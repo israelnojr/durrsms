@@ -1,9 +1,11 @@
 <?php
 
+use App\CountryCode;
 use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     if(Auth::check()){
-        return view('sms');
+        $codes = CountryCode::all();
+        return view('sms', compact('codes'));
     }
     else{
         return view('auth.login');
